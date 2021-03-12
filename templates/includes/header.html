@@ -1,0 +1,20 @@
+{% load static %}
+<header class="header ">
+    <div class="container">
+      <div class="row ">
+        <div class="col-md-6 header-info">
+          <a href="mailto:{{s.email}}" class="mr-3">{{s.email}}</a>
+          <a class="p-1" href="tel:{{s.phone}}"><i class="fas fa-phone"></i> {{s.phone}}</a>
+        </div>
+        <div class="header-buttons col-md-6 d-flex justify-content-end">
+          {% if user.is_authenticated %}
+          <a class="btn btn-accent mr-3" href="{% url 'dashboard' %}">Dashboard</a>
+          <a class="btn btn-accent " href="{% url 'logout_user' %}">logout</a>
+          {% else %}
+          <a class="btn btn-accent mr-3" href="{% url 'login_user' %}">Signin</a>
+          <a class="btn btn-accent " href="{% url 'register' %}">SignUp</a>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </header>
